@@ -15,6 +15,8 @@ def main():
         choice = input()
         if choice == 1:
             print("")
+	    deposit=float(input("How much do you want to deposit: $"))
+            balance2+=deposit
             balance1=round(balance1,2)
             balance2=round(balance2,2)
             transaction_history+=f"${deposit:.2f} was deposited, balance went from ${balance1} to ${balance2}\n"
