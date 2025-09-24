@@ -1,0 +1,45 @@
+def main():
+    print("[Welcome to OwlBanking]")
+    balance1=0.0
+    balance2=0.0
+    balance1=round(balance1,3)
+    balance2=round(balance2,3)
+    transaction_history=""
+    while True:
+        print("Select an option:")
+        print("1 - Deposit")
+        print("2 - Withdraw")
+        print("3 - Check Balance")
+        print("4 - Check Transaction History")
+        print("Q - Quit")
+        choice = input()
+        if choice == 1:
+            print("")
+            deposit=float(input("How much do you want to deposit: $"))
+            balance2+=deposit
+            balance1=round(balance1,2)
+            balance2=round(balance2,2)
+            transaction_history+=f"${deposit:.2f} was deposited, balance went from ${balance1} to ${balance2}\n"
+            balance1=balance2
+        if choice == 2:
+            print("")
+            if balance2==0:
+                print("Error: Cannot Withdraw with balance of zero")
+            elif balance2>0:
+                withdraw=float(input("How much do you want to withdraw: $"))
+                if withdraw>balance2:
+                    print("Error: Cannot Withdraw a larger amount than balance")
+                else:
+                    balance2-=withdraw
+        if choice == 3:
+            print("")
+            print(f"Balance: ${balance2}")
+        if choice ==4:
+            print("")
+            print(transaction_history)
+        if choice =="Q":
+            exit()
+if __name__ == "__main__":
+    main()
+
+
